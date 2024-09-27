@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CI Score Results</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h2>Carbon Intensity Scoring Results</h2>
+
+    <p>Farm Location: Latitude: {{ lat }}, Longitude: {{ long }}</p>
+
+    <h3>CI Scores Table</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>CO2 Emissions (kg CO2)</th>
+                <th>Output (kg)</th>
+                <th>CI Score (kg CO2/unit)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for index, row in df.iterrows() %}
+            <tr>
+                <td>{{ row['Product'] }}</td>
+                <td>{{ row['CO2 Emissions (kg CO2)'] }}</td>
+                <td>{{ row['Output (kg)'] }}</td>
+                <td>{{ row['CI Score (kg CO2/unit)'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h3>CI Scores Graph</h3>
+    <img src="{{ url_for('static', filename='ci_scoring_graph.png') }}" alt="CI Scores Graph">
+</body>
+</html>

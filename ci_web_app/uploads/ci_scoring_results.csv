@@ -1,0 +1,4 @@
+Product,CO2 Emissions (kg CO2),Output (kg),Energy Use (kWh),Transport Distance (km),CI Score (kg CO2/unit)
+Wheat,500,1000,100,200,0.5
+Milk,300,500,50,100,0.6
+Tomatoes,400,800,80,150,0.5
